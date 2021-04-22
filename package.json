@@ -1,0 +1,19 @@
+{
+  "name": "money_manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/amantiwari1/money_manager",
+  "author": "aman tiwari",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "concurrently": "^6.0.2"
+  },
+  "scripts": {
+    "install-client": "cd client && yarn install",
+    "install-server":"pipenv install",
+    "dev":"concurrently \"cd client && yarn start\"  \"cd server && pipenv run manage.py runserver\" ",
+    "migrate": "cd server && pipenv run manage.py migrate",
+    "makemigrations": "cd server && pipenv run manage.py makemigrations"
+  }
+}
