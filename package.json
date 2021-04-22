@@ -10,6 +10,7 @@
     "concurrently": "^6.0.2"
   },
   "scripts": {
+    "install": "yarn install-client && yarn install-server",
     "install-client": "cd client && yarn install",
     "install-server":"pipenv install",
     "dev":"concurrently \"cd client && yarn start\"  \"cd server && pipenv run manage.py runserver\" ",
