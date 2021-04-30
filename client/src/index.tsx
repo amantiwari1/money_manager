@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import './index.css';
 import ScrollToTop from "./website/utils/ScrollToTop";
 import App from './website/App';
 import store from './shared/store';
@@ -12,7 +11,7 @@ ReactDOM.render(
     <Provider store={store} >
       <BrowserRouter >
         <ScrollToTop />
-        <App   />
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
