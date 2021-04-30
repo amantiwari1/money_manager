@@ -1,25 +1,35 @@
 import React from 'react';
-import { HiMoon, HiSun } from 'react-icons/hi';
 import { ThemeContext } from './themeContext';
+import tw from 'twin.macro'
+import { Switch } from '@headlessui/react';
 
 
 const Toggle = () => {
     const { theme, setTheme } = React.useContext(ThemeContext);
+    let isDark = theme === 'dark'
+    const SwitchStyle = [
+        tw`relative inline-flex items-center h-6 rounded-full w-11`,
+        isDark ? tw`bg-blue-600` : tw`bg-gray-200`
+    ]
+
+    const ToggleStyle = [
+        tw`inline-block w-4 h-4 transform bg-white rounded-full`,
+        isDark ? tw`translate-x-6` : tw`translate-x-1`
+    ]
 
     return (
-        <div className="transition duration-500 ease-in-out rounded-full p-2" >
-            {theme === 'dark' ? (
-                <HiSun
-                    className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        <>
+            <Switch
+                checked={isDark}
+                onChange={() => setTheme(isDark ? 'light' : 'dark')}
+                css={SwitchStyle}
+            >
+                <span
+                    css={ToggleStyle}
                 />
-            ) : (
-                <HiMoon
-                    className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                />
-            )}
-        </div>
+            </Switch>
+
+        </>
     );
 };
 
