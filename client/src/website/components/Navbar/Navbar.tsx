@@ -37,7 +37,7 @@ const NavbarItem = styled.div`
   100% {opacity:1;}
 }
 `
-const Narbar = () => {
+const Navbar = () => {
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useDetectOutsideClick(dropdownRef, false); useState(false)
@@ -53,17 +53,18 @@ const Narbar = () => {
               <RiCloseLine tw="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)} >X</RiCloseLine>
             </div>
 
-            <div tw="flex space-x-5 cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            <div tw="flex space-x-5  whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
               <Icon />
-              <p>Hello</p>
+              <p>Overview Tracker</p>
             </div>
-            <div tw="flex space-x-5 cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            <div tw="flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
               <Icon />
-              <p>Hello</p>
+              <p>Add Transaction</p>
             </div>
-            <div tw="flex space-x-5 cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            
+            <div tw="flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
               <Icon />
-              <p>Hello</p>
+              <p>Check Price</p>
             </div>
             <Toggle />
 
@@ -71,8 +72,10 @@ const Narbar = () => {
 
 
           <div tw="flex flex-col space-y-5 " >
-            <Icon />
-            <Icon />
+            <div tw="flex space-x-5 cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+              <Icon />
+              <p>Setting</p>
+            </div>
           </div>
         </div>
 
@@ -88,4 +91,4 @@ const Narbar = () => {
   )
 }
 
-export default Narbar
+export default Navbar;
