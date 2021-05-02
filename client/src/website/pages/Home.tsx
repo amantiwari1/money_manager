@@ -1,8 +1,19 @@
 import tw from 'twin.macro'
+import Line from "../components/Line"
+
+
 const Home = () => {
+
+
+
+
+
     return (
-        <div tw="flex justify-center items-center" >
-            <h3 tw="text-xl font-bold" >Edit `client\src\website\pages\Home.tsx`</h3>
+        <div tw="justify-center items-center" >
+            <div tw="max-w-2xl" >
+                <Line />
+            </div>
+
         </div>
     )
 }
