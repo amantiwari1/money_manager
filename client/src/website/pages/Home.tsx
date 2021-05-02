@@ -1,12 +1,9 @@
+// eslint-disable-next-line
 import tw from 'twin.macro'
 import Line from "../components/Line"
 
 
 const Home = () => {
-
-
-
-
 
     return (
         <div tw="justify-center items-center" >
