@@ -13,6 +13,8 @@ stripe = "*"
 autopep8 = "*"
 pylint = "*"
 pylint-django = "*"
+djangorestframework-simplejwt = "*"
+djongo = "*"
 
 [dev-packages]
 
