@@ -12,13 +12,13 @@ interface Props {
   isOpen: boolean;
 }
 
-const NavbarItem = styled.div`
+const NavbarTop = styled.div`
     left: ${(props: Props) => props.isOpen ? "0" : "-100%"};
     ${tw`h-screen pt-4 top-0  md:left-0 dark:bg-black fixed   shadow-2xl bg-gray-500 w-48 md:w-16 z-10`}
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     
     &:hover {
-     ${tw`w-48`}
+     ${tw`w-52`}
     }
 
     p {
@@ -37,13 +37,15 @@ const NavbarItem = styled.div`
   100% {opacity:1;}
 }
 `
+
+const NavbarItem = tw.div`flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)`
 const Navbar = () => {
 
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useDetectOutsideClick(dropdownRef, false); useState(false)
   return (
     <>
-      <NavbarItem isOpen={isOpen} ref={dropdownRef} >
+      <NavbarTop isOpen={isOpen} ref={dropdownRef} >
         <div tw="flex flex-col space-y-10 md:space-y-96 items-center" >
 
           <div tw="flex flex-col  items-center  justify-between space-y-14" >
@@ -53,19 +55,23 @@ const Navbar = () => {
               <RiCloseLine tw="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)} >X</RiCloseLine>
             </div>
 
-            <div tw="flex space-x-5  whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            <NavbarItem >
               <Icon />
               <p>Overview Tracker</p>
-            </div>
-            <div tw="flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            </NavbarItem>
+            <NavbarItem   >
               <Icon />
               <p>Add Transaction</p>
-            </div>
-            
-            <div tw="flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)" >
+            </NavbarItem>
+
+            <NavbarItem>
               <Icon />
               <p>Check Price</p>
-            </div>
+            </NavbarItem>
+            <NavbarItem>
+              <Icon />
+              <p>Sign In</p>
+            </NavbarItem>
             <Toggle />
 
           </div>
@@ -80,7 +86,7 @@ const Navbar = () => {
         </div>
 
 
-      </NavbarItem>
+      </NavbarTop>
 
       <div tw="flex items-center w-full bg-red-300 h-14 shadow-md">
 
