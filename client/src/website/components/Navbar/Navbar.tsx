@@ -3,6 +3,7 @@ import tw, { styled } from 'twin.macro'
 import Toggle from '../../theme/themeToggle'
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri"
 import { useDetectOutsideClick } from '../../utils/useDetectOutsideClick'
+import { Link } from 'react-router-dom'
 
 const Icon = tw.div`h-8 w-8 bg-red-300 rounded-full cursor-pointer  `
 
@@ -14,7 +15,7 @@ interface Props {
 
 const NavbarTop = styled.div`
     left: ${(props: Props) => props.isOpen ? "0" : "-100%"};
-    ${tw`h-screen pt-4 top-0  md:left-0 dark:bg-black fixed   shadow-2xl bg-gray-500 w-48 md:w-16 z-10`}
+    ${tw`h-screen pt-4 top-0  md:left-0 dark:bg-black fixed   shadow-2xl bg-gray-500  w-52 md:w-16 z-10`}
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     
     &:hover {
@@ -38,7 +39,7 @@ const NavbarTop = styled.div`
 }
 `
 
-const NavbarItem = tw.div`flex space-x-5 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)`
+const NavbarItem = tw(Link)`flex space-x-4 whitespace-nowrap cursor-pointer filter grayscale text-red-300 hover:(grayscale-0)`
 const Navbar = () => {
 
   const dropdownRef = useRef(null);
@@ -48,29 +49,29 @@ const Navbar = () => {
       <NavbarTop isOpen={isOpen} ref={dropdownRef} >
         <div tw="flex flex-col space-y-10 md:space-y-96 items-center" >
 
-          <div tw="flex flex-col  items-center  justify-between space-y-14" >
+          <div tw="flex flex-col   space-y-14" >
 
-            <div tw="flex items-center text-white space-x-9" >
+            <div tw="flex justify-evenly items-center text-white space-x-9" >
               <Brand>MM</Brand>
               <RiCloseLine tw="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)} >X</RiCloseLine>
             </div>
 
-            <NavbarItem >
+            <NavbarItem to="/"  >
               <Icon />
               <p>Overview Tracker</p>
             </NavbarItem>
-            <NavbarItem   >
+            <NavbarItem to="/"    >
               <Icon />
               <p>Add Transaction</p>
             </NavbarItem>
 
-            <NavbarItem>
+            <NavbarItem to="/" >
               <Icon />
               <p>Check Price</p>
             </NavbarItem>
-            <NavbarItem>
+            <NavbarItem to="/login" >
               <Icon />
-              <p>Sign In</p>
+              <p>Log In</p>
             </NavbarItem>
             <Toggle />
 
