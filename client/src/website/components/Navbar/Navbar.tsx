@@ -15,7 +15,7 @@ interface Props {
 
 const NavbarTop = styled.div`
     left: ${(props: Props) => props.isOpen ? "0" : "-100%"};
-    ${tw`h-screen pt-4 top-0  md:left-0 dark:bg-black fixed   shadow-2xl bg-gray-500  w-52 md:w-16 z-10`}
+    ${tw`h-screen pt-4 top-0  md:left-0 dark:bg-black fixed   shadow-2xl bg-gray-500  w-52 md:w-20 z-10`}
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     
     &:hover {
@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <>
       <NavbarTop isOpen={isOpen} ref={dropdownRef} >
-        <div tw="flex flex-col space-y-10 md:space-y-96 items-center" >
+        <div tw="flex flex-col space-y-10 justify-center md:space-y-96 items-center" >
 
           <div tw="flex flex-col   space-y-14" >
 
